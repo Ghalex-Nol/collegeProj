@@ -139,16 +139,26 @@ void ImprimirCarta(CARTA carta){
 int main(){
     srand(time(NULL));
 
+    for(int x = 0; x<4; x++){
+         for(int y = 0; y<13; y++){
+        printf(" %c %c ", VALORES[y], NAIPES[x]);
+         }
+    }
+
+   
+    
     PTR_LISTA baralho = criar_lista();
 
-    for(int y = 0; y<4; y++){
+
+
+   /* for(int y = 0; y<4; y++){
         for(int x = 0; x<14; x++){
             inserir_inicio(baralho, VALORES[x], NAIPES[y]);
             printf(" %c \n " , VALORES[x]);
         }
         printf(" %c \n " , NAIPES[y]);
     }
-
+*/
 
 
 
