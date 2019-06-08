@@ -148,7 +148,8 @@ int main(){
 
  for(int x = 0; x<4; x++){
          for(int y = 0; y<13; y++){
-            inserir_inicio(baralho, VALORES[y], NAIPES[x]);
+             // verificar como colocar esse inserir no for 
+    //        inserir_inicio(baralho, VALORES[y], NAIPES[x]);
             printf(" %c %c ", VALORES[y], NAIPES[x]);
          }
     }
