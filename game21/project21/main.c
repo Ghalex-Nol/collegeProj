@@ -76,7 +76,7 @@ void inserir_final(PTR_LISTA lista, int valor){
     lista->tamanho++;
 }
 
-void inserir_inicio(PTR_LISTA lista, int valor, int naipe){
+void inserir_inicio(PTR_LISTA lista, char valor, char naipe){
 // Criar uma carta e adicionar o conteúdo
     PTR_CARTA carta = (PTR_CARTA)malloc(sizeof(PTR_CARTA));
     carta->valor = valor;
@@ -139,17 +139,19 @@ void ImprimirCarta(CARTA carta){
 int main(){
     srand(time(NULL));
 
-    for(int x = 0; x<4; x++){
-         for(int y = 0; y<13; y++){
-        printf(" %c %c ", VALORES[y], NAIPES[x]);
-         }
-    }
+   
 
    
     
     PTR_LISTA baralho = criar_lista();
 
 
+ for(int x = 0; x<4; x++){
+         for(int y = 0; y<13; y++){
+            inserir_inicio(baralho, VALORES[y], NAIPES[x]);
+            printf(" %c %c ", VALORES[y], NAIPES[x]);
+         }
+    }
 
    /* for(int y = 0; y<4; y++){
         for(int x = 0; x<14; x++){
