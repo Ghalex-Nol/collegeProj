@@ -1,0 +1,59 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int dinheiro = 100;
+
+void jogar(int valor_aposta)
+{
+    char A[3]={'J', 'K', 'Q'};
+    int escolha_jogador,i;
+    srand(time(NULL)); //ira gerar novo valor
+    
+    for(i=1; i<10; i++){
+        int x=rand()%3; //divide valor por 3
+        int y=rand()%3;
+        int temp=A[x];
+        A[x]=A[y];
+        A[y]=temp;
+        
+    }
+    
+    printf("Embaralhamento está feito.\n");
+    printf("Qual eh a posicao do Rei?(1,2 ou 3)?");
+    scanf("%d", &escolha_jogador);
+    
+    if(A[escolha_jogador-1]=='K'){ //index
+        dinheiro=dinheiro+2*valor_aposta;
+        printf("Você venceu. Posicao das cartas= '%c' '%c' '%c' voce tem=$%d\n", A[0], A[1], A[2], dinheiro);
+    }
+    else {
+        dinheiro=dinheiro-valor_aposta;
+        printf("Você perdeu. Posicao das cartas= '%c' '%c' '%c' voce tem=$%d\n", A[0], A[1], A[2], dinheiro);
+    }
+    
+    
+}
+
+int main ()
+{
+    
+    int valor_aposta;
+    
+    printf(" $$$ Bem-vindo ao Cassino Unisal $$$");
+    
+    printf("\n\n Seu total = $%d", dinheiro);
+    
+    while(dinheiro>0) {
+        printf("\n Qual o valor que deseja apostar? $");
+        scanf("%d", &valor_aposta);
+        if (valor_aposta == 0 || valor_aposta>dinheiro)
+        break;
+        
+        jogar(valor_aposta);
+    }
+    printf("Game over");
+    
+    // getch();
+    return 0;
+}
